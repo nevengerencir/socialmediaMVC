@@ -6,10 +6,24 @@ module.exports = {
         res.render('notification.ejs',{items : notifications})}
         catch(error){console.log(error)}
     },
-    like:(req,res)=>{
-        res.render('notification.ejs')
+    likeOne: async (req,res)=>{
+        try{  await Notification.updateOne({id:req.body.id}, 
+            {$inc: { likes: +1}})
+        res.json('Updated by one!')}
+            catch(error){console.log(error)}
+    },
+    dislikeOne: async (req,res)=>{
+        try{  await Notification.updateOne({id:req.body.id}, 
+            {$inc: { likes: -1}})
+        res.json('Disliked by one!')}
+            catch(error){console.log(error)}
     },
     markSeen:(req,res)=>{
         res.render('notification.ejs')
     },
+    deleteOne: async (req,res)=>{
+        try{ await Notification.deleteOne({id:req.body.id})
+        res.json('Deleted')}
+            catch(error){console.log(error)}
+    }
 }

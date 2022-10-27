@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/notification.css">
+    <link href='https://css.gg/trash.css' rel='stylesheet'>
+    <link href='https://css.gg/math-plus.css' rel='stylesheet'>
+    <link href='https://css.gg/math-minus.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <title>Notifications</title>
 </head>
 <body>
-    <h1>News posts:</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Go back to Homepage</a></li>
+        </ul>
+    </nav>
+    <div>
+    <h1>New posts:</h1>
 <% items.forEach( el => { %>
    <div class="container" data-id="<%=el._id%>">
 <p><%= el.info%></p>
+<span>likes : <%=el.likes%></span>
+
+<span class="gg-math-plus"></span>
+<span class="gg-math-minus"></span>
+
+<span class="gg-trash"></span>
+
    </div>
 <% }) %> 
-    
+</div>
+<script src="js/notification.js"></script>
 </body>
 </html>
