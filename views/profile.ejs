@@ -12,14 +12,16 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/">Go back to Homepage</a></li>
+            <li><a href="/notification">Notification page</a></li>
+            <a id="logout" href="/logout">Logout</a>
         </ul>
     </nav>
 <div>
     <h1>Your profile</h1>
-
+    <h2>Make a new post:</h2>
     <form action="/profile/postOne" method="POST">
-        <input type="text" name="notification">
+        <textarea name="notification" rows="4" cols="50"> </textarea>
+
         <button type="submit"> POST</button>
     </form>
 </div>

@@ -1,8 +1,12 @@
+html {
+    font-size: 62.5%;
+  }
 * {
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
   }
 body{
+   padding: 40px;
     opacity: 0.7;
     background-color: #EEEEEE;
     display: grid;
@@ -10,11 +14,16 @@ body{
     height: 100vh;
     gap: 10%;
 }
+h1{
+    font-size: 5rem;
+
+}
 li{
     margin-bottom: 10px;  
     list-style: none;
 }
 a {
+    font-size: 2.5rem;
     color: #000;
     text-decoration: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
@@ -22,19 +31,47 @@ a {
 }
 .container{
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    height: 100px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
-    justify-content: space-around;
+    min-height: 150px;
+}
+
+#extraInfo{
+font-size: 1rem;
+}
+span{
+    font-size: 1.5rem;
 }
 
 p{
+    max-width: 60%;
+    height: 100%;
+    font-size: 3rem;
     margin: 0%;
     margin-right: 10%;
 }
 h1{
     margin-bottom: 10%;
 }
+
+.extra{
+    justify-self: flex-end;
+    width:200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}    
+textarea {
+    resize: none;
+  }
+ul{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ 
 
 

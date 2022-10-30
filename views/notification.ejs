@@ -17,22 +17,26 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/">Go back to Homepage</a></li>
+            <li><a href="/profile">Your profile</a></li>
         </ul>
     </nav>
     <div>
-    <h1>New posts:</h1>
-<% items.forEach( el => { %>
-   <div class="container" data-id="<%=el._id%>">
-<p><%= el.info%></p>
-<span>likes : <%=el.likes%></span>
+    <h1>Notification board:</h1>
+    <span>Down here you see notifications from all users</span>
 
+<% items.forEach( el => { %>
+   <div class="container" >
+<p class="informationContainer"><span id="extraInfo"><%= el.userName%> <%= el.date%></span><br>
+    <%= el.info%></p>
+<div class="extra" data-id="<%=el._id%>">
+    <span>likes : <%=el.likes%></span>
 <span class="gg-math-plus"></span>
 <span class="gg-math-minus"></span>
 
 <span class="gg-trash"></span>
-
+</div>
    </div>
+
 <% }) %> 
 </div>
 <script src="js/notification.js"></script>
