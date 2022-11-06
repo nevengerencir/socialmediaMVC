@@ -2,9 +2,11 @@ const trashIcon = [...document.querySelectorAll('.gg-trash')]
 const plus = [...document.querySelectorAll('.gg-math-plus')]
 const minus = [...document.querySelectorAll('.gg-math-minus')]
 
+
 plus.forEach(e =>{ e.addEventListener('click', likeOne)})
 minus.forEach(e =>{ e.addEventListener('click', dislikeOne)})
 trashIcon.forEach(e =>{ e.addEventListener('click',deleteOne)})
+
 
 async function deleteOne(){
     const id = this.parentNode.dataset.id

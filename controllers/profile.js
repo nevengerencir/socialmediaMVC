@@ -1,8 +1,24 @@
 const Notification = require('../models/notifications')
 
 module.exports = {
-    getProfile: (req,res)=>{
-        res.render('profile.ejs')
+
+        getProfileById: async (req,res ) => {
+                try{      
+                    if(req.user._id == req.params.id){
+                        res.redirect('/profile')
+                    }   
+                    else{            
+        const notifications = await Notification.find({user_id: req.params.id})
+        res.render('profileById.ejs',{items : notifications})}}   
+        catch(error){console.log(error)}
+    },
+
+    getProfile: async (req,res)=>{
+        try{
+            const notification = await Notification.find({user_id: req.user._id})
+            res.render('profile.ejs',{items: notification})
+        }
+            catch(error){console.log(error)}
     },
     postOne: async (req,res) =>{
         const date = new Date();

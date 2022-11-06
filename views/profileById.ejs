@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <% items.forEach( el => { %>
+        <div class="container" >
+     <p class="informationContainer"><span id="extraInfo"><a href=<%= el.user_id
+     %>><%= el.userName%></a> <%= el.date%></span><br>
+         <%= el.info%></p>
+     <div class="extra" data-id="<%=el._id%>">
+         <span>likes : <%=el.likes%></span>
+     <span class="gg-math-plus"></span>
+     <span class="gg-math-minus"></span>
+     
+     <span class="gg-trash"></span>
+     </div>
+        </div>
+     
+     <% }) %> 
+    
+</body>
+</html>

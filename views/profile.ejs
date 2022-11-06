@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/notification.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href='https://css.gg/trash.css' rel='stylesheet'>
 
     <title>Profile</title>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="/notification">Notification page</a></li>
-            <a id="logout" href="/logout">Logout</a>
+            <a class="nav" href="/notification">Notification page</a></li>
+            <a class="nav" id="logout" href="/logout">Logout</a>
         </ul>
     </nav>
 <div>
@@ -24,6 +25,17 @@
 
         <button type="submit"> POST</button>
     </form>
+    <% items.forEach( el => { %>
+        <div class="container" >
+     <p class="informationContainer"><span id="extraInfo"><a href='/profile/<%= el.user_id%>'><%= el.userName%></a> <%= el.date%></span><br>
+        <a href='/notification/<%= el.id%>'><%= el.info%></a></p>
+     <div class="extra" data-id="<%=el._id%>">
+         <span>likes : <%=el.likes%></span>
+     <span class="gg-trash"></span>
+     </div>
+        </div>
+        <% }) %> 
+  
 </div>
 
 </body>

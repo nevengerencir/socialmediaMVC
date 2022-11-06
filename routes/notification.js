@@ -3,6 +3,7 @@ const router = express.Router();
 const notificationController = require('../controllers/notification')
 const { ensureAuth } = require('../middleware/auth')
 
+router.get('/:id', ensureAuth, notificationController.getNotification)
 
 router.get('/', ensureAuth, notificationController.getIndex)
 router.put('/likeOne',notificationController.likeOne)

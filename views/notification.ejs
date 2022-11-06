@@ -5,40 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/notification.css">
-    <link href='https://css.gg/trash.css' rel='stylesheet'>
-    <link href='https://css.gg/math-plus.css' rel='stylesheet'>
-    <link href='https://css.gg/math-minus.css' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <title>Notifications</title>
+    <title>Notification</title>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="/profile">Your profile</a></li>
+            <a class="nav" href="/notification">Notification board</a></li>
+            <a class="nav"  href="/profile">profile</a>
         </ul>
     </nav>
-    <div>
-    <h1>Notification board:</h1>
-    <span>Down here you see notifications from all users</span>
-
-<% items.forEach( el => { %>
-   <div class="container" >
-<p class="informationContainer"><span id="extraInfo"><%= el.userName%> <%= el.date%></span><br>
-    <%= el.info%></p>
-<div class="extra" data-id="<%=el._id%>">
-    <span>likes : <%=el.likes%></span>
-<span class="gg-math-plus"></span>
-<span class="gg-math-minus"></span>
-
-<span class="gg-trash"></span>
+<div>
+    <div class="container">
+    <span></span>
+    <p><%= notification.info%></p>
 </div>
-   </div>
-
-<% }) %> 
+    
+    
+    <% comments.forEach( el => { %>
+        <div class="container" >
+     <p class="informationContainer"><span id="extraInfo"><a href='/profile/<%= el.user_id%>'><%= el.userName%></a> <%= el.date%></span><br>
+         <%= el.info%></p>
+     <div class="extra" data-id="<%=el._id%>">
+         <span>likes : <%=el.likes%></span>
+     <span class="gg-trash"></span>
+     </div>
+        </div>
+        <% }) %> 
+  
 </div>
-<script src="js/notification.js"></script>
+
 </body>
 </html>
