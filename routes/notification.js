@@ -4,6 +4,8 @@ const notificationController = require('../controllers/notification')
 const { ensureAuth } = require('../middleware/auth')
 
 router.get('/:id', ensureAuth, notificationController.getNotification)
+router.post('/:id', notificationController.postComment)
+
 
 router.get('/', ensureAuth, notificationController.getIndex)
 router.put('/likeOne',notificationController.likeOne)

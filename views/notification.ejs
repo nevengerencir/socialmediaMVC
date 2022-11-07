@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/notification.css">
+    <title>Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-    <title>Notification</title>
+    <link rel="stylesheet" href="css/notification.css">
+    
 </head>
 <body>
     <nav>
@@ -18,21 +19,27 @@
 <div>
     <div class="container">
     <span></span>
-    <p><%= notification.info%></p>
+    <p id="notificationId" data-id="<%=notification._id%>"><%= notification.info%></p>
 </div>
     
     
     <% comments.forEach( el => { %>
         <div class="container" >
-     <p class="informationContainer"><span id="extraInfo"><a href='/profile/<%= el.user_id%>'><%= el.userName%></a> <%= el.date%></span><br>
+     <p class="informationContainer"><span id="extraInfo"><a href='/profile/<%= el.user_id%>'><%= el.userName%> </a> <%= el.date%></span><br>
          <%= el.info%></p>
      <div class="extra" data-id="<%=el._id%>">
-         <span>likes : <%=el.likes%></span>
-     <span class="gg-trash"></span>
+        <% if (id == notification.user_id) { %>
+            <span class="gg-trash"></span>
+            <%}  %>
      </div>
         </div>
         <% }) %> 
-  
+        <h2>Comment:</h2>
+        <form action='/notification/<%= notification._id%>' method="POST">
+            <textarea name="comment" rows="4" cols="50"> </textarea>
+    
+            <button type="submit"> POST</button>
+        </form>
 </div>
 
 </body>

@@ -3,13 +3,14 @@ const Notification = require('../models/notifications')
 module.exports = {
 
         getProfileById: async (req,res ) => {
-                try{      
+                try{             
                     if(req.user._id == req.params.id){
                         res.redirect('/profile')
                     }   
                     else{            
         const notifications = await Notification.find({user_id: req.params.id})
-        res.render('profileById.ejs',{items : notifications})}}   
+        let id = req.user._id
+        res.render('profileById.ejs',{items : notifications, id})}}   
         catch(error){console.log(error)}
     },
 

@@ -3,19 +3,43 @@ const Comment = require('../models/Comment')
 
 
 module.exports = {
+    postComment: async (req,res) =>{
+       try{
+         await Comment.create({ 
+            info:req.body.comment,
+            userId:req.user.id,
+            userName: req.user.userName,
+            notificationId: req.params.id
+        })
+         console.log(`New comment created!`)
+         res.redirect('back');
+        }
+    catch(error){
+        console.log(`error`)
+    }
+    },
     getNotification: async(req,res)=>{
     try{
+        let id = req.user._id
         const notification = await Notification.findById(req.params.id)
-        const comments = await Comment.find({user: notification.user_id})
+        const comments = await Comment.find({notificationId:notification._id})
         res.render('notification.ejs',{
             comments : comments,
-            notification : notification
+            notification : notification,
+            id: id,
         })
     }
     catch(error){console.log(error)}},
     getIndex: async (req,res)=>{
-       try{ const notifications = await Notification.find()
-        res.render('notificationBoard.ejs',{items : notifications})}
+       try{ 
+        
+        const notifications = await Notification.find()
+        let id = req.user._id
+        console.log(id)
+        res.render('notificationBoard.ejs',{
+            items : notifications,
+            id
+        })}
         catch(error){console.log(error)}
     },
     likeOne: async (req,res)=>{
