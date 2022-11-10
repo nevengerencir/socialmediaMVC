@@ -20,9 +20,12 @@ module.exports = {
     },
     getNotification: async(req,res)=>{
     try{
+
         let id = req.user._id
         const notification = await Notification.findById(req.params.id)
         const comments = await Comment.find({notificationId:notification._id})
+        console.log(JSON.stringify(comments[1].userId) == JSON.stringify(req.user._id)  )
+        console.log(JSON.stringify(req.user._id) )
         res.render('notification.ejs',{
             comments : comments,
             notification : notification,

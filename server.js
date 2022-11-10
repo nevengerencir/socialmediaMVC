@@ -30,7 +30,7 @@ connectDB()
 app.set('view engine', 'ejs')
 
 //Making a static folder 
-app.use(express.static('public'))
+app.use(express.static(__dirname + '/public'));
 
 //Middelware for passing data
 app.use(express.urlencoded({ extended: true }))
